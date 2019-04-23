@@ -10,14 +10,33 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Menu</title>
+        <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="fonts.css">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montez|Pathway+Gothic+One" rel="stylesheet">
+
     </head>
     <body>
-        <h1 style="font-size: 250%;" align="center">INICIO</h1>
+        
+    <header>
+        <h1 class="title">SIGERE</h1>
+        <a href="index.jsp">Salir</a>
+    </header>
+        
+            <h4 style="font-size: 250%;" align="center">INICIO</h4>
+        </a>
+        <%!
+            String txtUsuario;
+        %>
+        
+        <%
+            txtUsuario=request.getParameter("txtUsuario");
+        %>
         
         <table align ="right">
         
-            <th><img src="Iconos/user-icon.png"  width="80" height="80">Mi Usuario<br>Cerrar sesion
+            <th><a href="usuario.jsp"><img src="Iconos/user-icon.png"  width="80" height="80"><%=txtUsuario%><br>
+
             </th>
              
         </table>

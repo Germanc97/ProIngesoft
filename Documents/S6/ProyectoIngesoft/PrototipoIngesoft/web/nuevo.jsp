@@ -9,62 +9,70 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        
+        <title>REGISTRARSE</title>
+        <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="fonts.css">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montez|Pathway+Gothic+One" rel="stylesheet">
+
+     
     </head>
     <body>
-        <h2 align="center">Registro de Usuarios</h2>
-        <form action="">
-            <table border="1" width="250" align="center">
-                <tr>
-                    <td>Codigo: </td>
-                    <td><input type="text" name="txtCod"></td>
-                </tr>
-                <tr>
-                    <td>Nombre </td>
-                    <td><input type="text" name="txtNom"></td>
-                </tr>
-                <tr>
-                    <td>Edad </td>
-                    <td><input type="text" name="txtEdad"></td>
-                </tr>
-                <tr>
-                    <td>Sexo: </td>
-                    <td><input type="text" name="txtSexo"></td>
-                </tr>
-                <tr>
-                    <td>Password: </td>
-                    <td><input type="text" name="txtPas"></td>
-                </tr>
-                <tr> 
-                    <th colspan="2">
-                        <input type="submit" name="btnGrabat"
-                               value="Grabar Usuario"></td>
-                </tr>
-            </table>
-        </form>
+           <div class="contenedor">
+
+      <header>
+        <h1 class="title">SIGERE</h1>
+        <a href="index.jsp">Atrás</a>
+      </header>
+      <div class="login">
+        <article class="fondo">
+          <img src="Iconos/New.png" alt="User">
+          <h3>REGISTRARSE</h3>
+          <form class="" action="nuevo.jsp" method="post">
+            <h4>Nombre: </h4> <br>
+            <span class="icon-user"></span><input class="inp" type="text" name="txtNom" value=""><br>
+            <h4>Correo Electronico: </h4> <br>
+            <span class="icon-envelop"></span><input class="inp" type="email" name="txtCorreo" value=""><br>
+            <h4>Usuario: </h4> <br>
+            <span class="icon-user"></span><input class="inp" type="text" name="txtUsu" value=""><br>
+            <h4>Contraseña: </h4> <br>
+            <span class="icon-key"></span><input class="inp" type="password" name="txtCont" value=""><br>
+            <!--<a href="" class="he">He olvidado mi contraseña</a>-->
+            <input class="boton" type="submit" name="btnCrear" value="Registrarse">
+          </form>
+        </article>
+      </div>
+
+    </div>
+        
         
         <%
-            if(request.getParameter("btnGrabar")!=null){
-            String cod=request.getParameter("txtCod");
-            String nom=request.getParameter("txtNom");
-            int edad=Integer.parseInt(request.getParameter("txtEdad"));
-            String sexo=request.getParameter("txtSex");
-            String pas=request.getParameter("txtPas");
-            
-            Connection cnx = null;
-            Statement sta=null;
-            
-            try{
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            cnx=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","Proyecto","proyecto");
-            
-            
-            PreparedStatement ps = cnx.prepareStatement("insert into usuarios values('"+cod+"','"+nom+"',"+edad+",'"+sexo+"','"+pas+"')");
-            request.getRequestDispatcher("Listado.jsp").forward(request, response);
-            }catch(Exception e){out.print(e+"");}
-            
+            if(request.getParameter("btnCrear")!=null){
+                String nom = request.getParameter("txtNom");
+                String correo = request.getParameter("txtCorreo");
+                String usu = request.getParameter("txtUsu");
+                String contra = request.getParameter("txtCont");
+                
+                Connection cnx=null;
+                Statement sta=null;
+                ResultSet rs=null;
+                
+                try{
+                   
+                    Class.forName("oracle.jdbc.driver.OracleDriver");
+                    cnx=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","Proyecto","proyecto");
+                
+                    sta=cnx.createStatement();
+                    rs=sta.executeQuery("insert into usuarios values('"+usu+"','"+nom+"','"+correo+"','"+contra+"')" );
+                    sta.executeQuery("commit");
+                    request.getRequestDispatcher("Main.jsp").forward(request, response);
+                    
+                }catch(Exception e){out.print(e+"");}
+                
+                
             }
-            %>
+            
 
+            %>
     </body>
 </html>
