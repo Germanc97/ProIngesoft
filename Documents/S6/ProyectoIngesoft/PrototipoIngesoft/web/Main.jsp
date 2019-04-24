@@ -13,44 +13,49 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Inicio</title>
         <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="estilos2.css">
         <link rel="stylesheet" href="fonts.css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montez|Pathway+Gothic+One" rel="stylesheet">
 
     </head>
-    <body style='background-color: #1ABC9C;'>
-    <header>
-        <h1 class="title">SIGERE</h1>
-        <a href="cerrarSesion.jsp">Salir</a>
-        
-    </header>
-        <br>
-            <h4 style="font-size: 150%;" align="center">INICIO</h4>
-            <h1 align= right style="font-size: 150%;" >Mi Perfil</h1>
-        </a>
-        <%
-            HttpSession sessionStatus = request.getSession();
-            Login usuario = (Login) sessionStatus.getAttribute("Usuario");
-            String txtUsuario = usuario.getUsuario();
-        
-        %>
-        
-        <table align ="right">
-        
-            <th><a href="usuario.jsp"><img src="Iconos/user-icon.png"  width="80" height="80"><%=txtUsuario%><br>
+    <body Style = "background-image: url(img/back.JPG)">
+    <div class="contenedor2">
+        <header>
+            <h1 class="title">SIGERE</h1>
+            <a href="cerrarSesion.jsp">Salir</a>
 
-            </th>
+        </header>
+            <br>
+                <h4 style="font-size: 250%;" align="center">INICIO</h4><br>
+                
+            </a>
+            <%
+                HttpSession sessionStatus = request.getSession();
+                Login usuario = (Login) sessionStatus.getAttribute("Usuario");
+                String txtUsuario = usuario.getUsuario();
+
+            %>
+            
+            <form action="usuario.jsp" method="post" align="right" style="margin-right: 50px;">
+                <h1 align= right style="font-size: 150%;"  >Mi Perfil</h1>
+                <input class ="imgusuario" type=image src="Iconos/user-icon.png" ><br>
+                <%=txtUsuario%>
+            </form>
+                
            
-        </table>
-        <div class="content-box-blue" width="10px" height="10px">
-        <table align="left">
-            <button type="button" onclick="" style='width:150px; height:75px'>Crear Proyecto</button><br>
-            <br>
-            <button type="button" onclick="" style='width:150px; height:75px'>Mis Proyectos</button><br>
-            <br>
-            <button type="button" onclick="" style='width:150px; height:75px'>Herramientas</button><br>
-            <br>
-            <button type="button" onclick="" style='width:150px; height:75px'>Grupos de Trabajo</button><br>
-        </div>     
-        </table>
+
+            <div class="botonesmain">
+            <table align="left">
+                <button type="button" onclick="window.location.href('usuario.jsp');" style='width:150px; height:75px'>Crear Proyecto</button><br>
+                <br>
+                <button type="button" onclick="" style='width:150px; height:75px'>Mis Proyectos</button><br>
+                <br>
+                <button type="button" onclick="" style='width:150px; height:75px'>Herramientas</button><br>
+                <br>
+                <button type="button" onclick="" style='width:150px; height:75px'>Grupos de Trabajo</button><br>
+                
+            </table>
+            </div> 
+    </div>
     </body>
 </html>

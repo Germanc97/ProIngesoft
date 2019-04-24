@@ -20,7 +20,7 @@
      
     </head>
     <body>
-           <div class="contenedor"
+           <div class="contenedor">
         <header>
             <h1 class="title">SIGERE</h1>
             <a href="Main.jsp">Atrás</a>

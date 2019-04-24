@@ -17,6 +17,7 @@
             HttpSession sessionOut = request.getSession();
             sessionOut.invalidate();
             response.sendRedirect("index.jsp");
+ 
 
 
             %>
