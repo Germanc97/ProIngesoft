@@ -109,7 +109,7 @@ header a:hover{
   color: #fff;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  text-align: right;
+  text-align: center;
   transition: all 250ms ease;
 }
 .fondo form .inp:focus{

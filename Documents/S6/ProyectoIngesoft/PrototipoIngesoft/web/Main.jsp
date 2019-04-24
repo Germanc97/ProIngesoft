@@ -25,16 +25,17 @@
             <a href="cerrarSesion.jsp">Salir</a>
 
         </header>
-            <br>
-                <h4 style="font-size: 250%;" align="center">INICIO</h4><br>
-                
-            </a>
             <%
                 HttpSession sessionStatus = request.getSession();
                 Login usuario = (Login) sessionStatus.getAttribute("Usuario");
                 String txtUsuario = usuario.getUsuario();
 
             %>
+            <br>
+                <h4 style="font-size: 250%;" align="center">BIENVENIDO <%=txtUsuario%> </h4><br>
+                
+            </a>
+
             
             <form action="usuario.jsp" method="post" align="right" style="margin-right: 50px;">
                 <h1 align= right style="font-size: 150%;"  >Mi Perfil</h1>
@@ -46,7 +47,7 @@
 
             <div class="botonesmain">
             <table align="left">
-                <button type="button" onclick="window.location.href('usuario.jsp');" style='width:150px; height:75px'>Crear Proyecto</button><br>
+                <button type="button" onclick="location.href='crearProyecto.jsp'" style='width:150px; height:75px'>Crear Proyecto</button><br>
                 <br>
                 <button type="button" onclick="" style='width:150px; height:75px'>Mis Proyectos</button><br>
                 <br>

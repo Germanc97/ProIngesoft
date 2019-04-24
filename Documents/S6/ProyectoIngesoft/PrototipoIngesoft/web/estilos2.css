@@ -41,6 +41,21 @@ and open the template in the editor.
     margin-right: 30px;
     border-radius: 50%;
     border: solid #fff 5px;
-        
-    
+          
+}
+
+.inp2{
+  box-shadow: 0;
+  border: 0;
+  background-color: rgba(255, 255, 255, .1);
+  width: 90%;
+  margin-bottom: 35px;
+  height: 30px;
+  border: solid 2px rgba(255,255,255,.5);
+  font-size: 20px;
+  color: #fff;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-align: center;
+  transition: all 250ms ease;
 }
