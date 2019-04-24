@@ -10,20 +10,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Menu</title>
+        <title>Inicio</title>
         <link rel="stylesheet" href="estilos.css">
         <link rel="stylesheet" href="fonts.css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montez|Pathway+Gothic+One" rel="stylesheet">
 
     </head>
-    <body>
-        
+    <body style='background-color: #1ABC9C;'>
     <header>
         <h1 class="title">SIGERE</h1>
         <a href="index.jsp">Salir</a>
-    </header>
         
-            <h4 style="font-size: 250%;" align="center">INICIO</h4>
+    </header>
+        <br>
+            <h4 style="font-size: 150%;" align="center">INICIO</h4>
+            <h1 align= right style="font-size: 150%;" >Mi Perfil</h1>
         </a>
         <%!
             String txtUsuario;
@@ -38,9 +39,9 @@
             <th><a href="usuario.jsp"><img src="Iconos/user-icon.png"  width="80" height="80"><%=txtUsuario%><br>
 
             </th>
-             
+           
         </table>
-        
+        <div class="content-box-blue" width="10px" height="10px">
         <table align="left">
             <button type="button" onclick="" style='width:150px; height:75px'>Crear Proyecto</button><br>
             <br>
@@ -49,9 +50,7 @@
             <button type="button" onclick="" style='width:150px; height:75px'>Herramientas</button><br>
             <br>
             <button type="button" onclick="" style='width:150px; height:75px'>Grupos de Trabajo</button><br>
-            
+        </div>     
         </table>
-        
-        <h1 style="font-size: 250%;" align="center">MY SIGERE</h1>
     </body>
 </html>
