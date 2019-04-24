@@ -3,6 +3,7 @@
     Created on : 22/04/2019, 08:20:42 PM
     Author     : germancaycedo
 --%>
+<%@page import="modelo.Login"%>
 <%@page import="java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,16 +26,14 @@
             <a href="Main.jsp">Atrás</a>
         </header>
         <div class="login">
-            <%!
-             String txtUsuario;
-            %>
-           <%
-               txtUsuario=request.getParameter("txtUsuario");
-            %>
+
            
             <%
+                HttpSession sessionStatus = request.getSession();
+                Login usuario = (Login) sessionStatus.getAttribute("Usuario");
+                String txtUsuario = usuario.getUsuario();
                 
-                String usu2 = "german97";
+                
                 
                 Connection cnx=null;
                 Statement sta=null;
@@ -46,7 +45,7 @@
                     cnx=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","Proyecto","proyecto");
                 
                     sta=cnx.createStatement();
-                    rs=sta.executeQuery("select * from usuarios where usu = '"+usu2+"' " );
+                    rs=sta.executeQuery("select * from usuarios where usu = '"+txtUsuario+"' " );
                     // request.getRequestDispatcher("Main.jsp").forward(request, response); 
                  while(rs.next()){
                  %>
@@ -85,8 +84,9 @@
                 
                 
                 sta=cnx.createStatement();
-                rs=sta.executeQuery("update usuarios set usu='"+usu+"', nomusu='"+nom+"', corrousu='"+correo+"', contrausu='"+contra+"' where usu = '"+usu2+"' ");
+                rs=sta.executeQuery("update usuarios set usu='"+usu+"', nomusu='"+nom+"', corrousu='"+correo+"', contrausu='"+contra+"' where usu = '"+txtUsuario+"' ");
                 sta.executeQuery("commit");
+                response.sendRedirect("usuario.jsp");
 
 }              
         }catch(Exception e){out.print(e+"");}

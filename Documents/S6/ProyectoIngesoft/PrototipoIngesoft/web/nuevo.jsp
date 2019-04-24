@@ -3,6 +3,7 @@
     Created on : 20/04/2019, 09:50:46 AM
     Author     : germancaycedo
 --%>
+<%@page import="modelo.Login"%>
 <%@page import="java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -65,7 +66,14 @@
                     sta=cnx.createStatement();
                     rs=sta.executeQuery("insert into usuarios values('"+usu+"','"+nom+"','"+correo+"','"+contra+"')" );
                     sta.executeQuery("commit");
-                    request.getRequestDispatcher("Main.jsp").forward(request, response);
+                    
+                    Login login = new Login(); 
+                    login.setUsuario(usu);
+                        
+                    HttpSession sessionok = request.getSession();
+                    sessionok.setAttribute("Usuario",login);
+                    response.sendRedirect("Main.jsp");
+                    
                     
                 }catch(Exception e){out.print(e+"");}
                 

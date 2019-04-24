@@ -3,8 +3,10 @@
     Created on : 18/04/2019, 10:55:51 PM
     Author     : germancaycedo
 --%>
-
+<%@page session="true"%>
 <%@page import="java.sql.*" %>
+<%@page import="modelo.Login" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -71,7 +73,16 @@
                     //out.print(usu);
                     
                     if(res != null){
-                        request.getRequestDispatcher("Main.jsp").forward(request, response);
+                        
+                        Login login = new Login(); 
+                        login.setUsuario(txtUsuario);
+                        
+                        HttpSession sessionok = request.getSession();
+                        sessionok.setAttribute("Usuario",login);
+                        response.sendRedirect("Main.jsp");
+                        
+                                
+                       // request.getRequestDispatcher("Main.jsp").forward(request, response);
                     }
                     
                 }catch(Exception e){out.print(e+"");}

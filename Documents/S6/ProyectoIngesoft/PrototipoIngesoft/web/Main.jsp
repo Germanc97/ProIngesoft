@@ -1,10 +1,11 @@
 
+<%@page import="modelo.Login"%>
 <%-- 
     Document   : Main
     Created on : 21/04/2019, 09:57:29 PM
     Author     : germancaycedo
 --%>
-
+<%@page session="true"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,19 +20,18 @@
     <body style='background-color: #1ABC9C;'>
     <header>
         <h1 class="title">SIGERE</h1>
-        <a href="index.jsp">Salir</a>
+        <a href="cerrarSesion.jsp">Salir</a>
         
     </header>
         <br>
             <h4 style="font-size: 150%;" align="center">INICIO</h4>
             <h1 align= right style="font-size: 150%;" >Mi Perfil</h1>
         </a>
-        <%!
-            String txtUsuario;
-        %>
-        
         <%
-            txtUsuario=request.getParameter("txtUsuario");
+            HttpSession sessionStatus = request.getSession();
+            Login usuario = (Login) sessionStatus.getAttribute("Usuario");
+            String txtUsuario = usuario.getUsuario();
+        
         %>
         
         <table align ="right">
