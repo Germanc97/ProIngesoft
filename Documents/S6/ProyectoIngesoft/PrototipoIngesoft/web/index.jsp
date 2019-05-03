@@ -6,7 +6,6 @@
 <%@page session="true"%>
 <%@page import="java.sql.*" %>
 <%@page import="modelo.Login" %>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,7 +19,7 @@
 
      
     </head>
-    <body>
+    <body Style = "background-image: url(img/back.jpg)">
     <div class="contenedor">
 
       <header>
@@ -58,7 +57,7 @@
                 try{
                    
                     Class.forName("oracle.jdbc.driver.OracleDriver");
-                    cnx=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","Proyecto","proyecto");
+                    cnx=DriverManager.getConnection("jdbc:oracle:thin:@181.234.31.151:1521:XE","Proyecto","proyecto");
                 
                     sta=cnx.createStatement();
                     rs=sta.executeQuery("select * from usuarios where Usu = '"+txtUsuario+"' and ContraUsu = '"+contra+"' " );
@@ -79,11 +78,16 @@
                         
                         HttpSession sessionok = request.getSession();
                         sessionok.setAttribute("Usuario",login);
+                        
                         response.sendRedirect("Main.jsp");
                         
                                 
                        // request.getRequestDispatcher("Main.jsp").forward(request, response);
                     }
+                    
+                sta.close();
+                rs.close();
+                cnx.close();
                     
                 }catch(Exception e){out.print(e+"");}
                 

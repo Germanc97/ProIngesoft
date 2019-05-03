@@ -61,7 +61,7 @@
                 try{
                    
                     Class.forName("oracle.jdbc.driver.OracleDriver");
-                    cnx=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","Proyecto","proyecto");
+                    cnx=DriverManager.getConnection("jdbc:oracle:thin:@181.234.31.151:1521:XE","Proyecto","proyecto");
                 
                     sta=cnx.createStatement();
                     rs=sta.executeQuery("insert into usuarios values('"+usu+"','"+nom+"','"+correo+"','"+contra+"')" );

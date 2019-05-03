@@ -42,7 +42,7 @@
                 try{
                    
                     Class.forName("oracle.jdbc.driver.OracleDriver");
-                    cnx=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","Proyecto","proyecto");
+                    cnx=DriverManager.getConnection("jdbc:oracle:thin:@192.168.250.224:1521:XE","Proyecto","proyecto");
                 
                     sta=cnx.createStatement();
                     rs=sta.executeQuery("select * from usuarios where usu = '"+txtUsuario+"' " );

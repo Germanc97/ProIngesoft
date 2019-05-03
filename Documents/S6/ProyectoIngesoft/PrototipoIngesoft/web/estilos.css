@@ -4,7 +4,7 @@
   font-family: Josefin Sans;
 }
 .contenedor{
-  background-image: url(img/back.JPG);
+  background-image: url(img/back.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
   display: flex;
